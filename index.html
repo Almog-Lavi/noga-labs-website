@@ -170,99 +170,7 @@
       ></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <header class="site-header glass-header">
-      <div class="container header-inner">
-        <a href="#welcome" class="logo-link" aria-label="Noga Labs — Home">
-          <img
-            class="logo-img logo-img--mobile"
-            src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png"
-            width="44"
-            height="44"
-            alt=""
-          />
-          <img
-            class="logo-img logo-img--desktop"
-            src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black.png"
-            width="180"
-            height="48"
-            alt="Noga Labs"
-          />
-        </a>
-
-        <nav class="header-nav" aria-label="Primary">
-          <a class="nav-link" href="#welcome">Welcome</a>
-          <a class="nav-link" href="#benefits">Benefits</a>
-          <a class="nav-link" href="#how-it-works">How It Works</a>
-          <a class="nav-link" href="#beta-perks">Perks</a>
-        </nav>
-
-        <div class="header-cta-group">
-          <a class="btn btn-header" href="#waitlist-footer">
-            Reserve My Spot
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="btn-icon"
-            >
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-
-        <button
-          type="button"
-          class="nav-toggle"
-          id="nav-toggle"
-          aria-controls="mobile-nav-drawer"
-          aria-expanded="false"
-          aria-label="Open menu"
-        >
-          <span class="nav-toggle-bar" aria-hidden="true"></span>
-          <span class="nav-toggle-bar" aria-hidden="true"></span>
-          <span class="nav-toggle-bar" aria-hidden="true"></span>
-        </button>
-      </div>
-    </header>
-
-    <div
-      class="mobile-nav-drawer"
-      id="mobile-nav-drawer"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Site navigation"
-      aria-hidden="true"
-    >
-      <nav class="mobile-nav-inner" aria-label="Mobile">
-        <a class="mobile-nav-link" href="#welcome">Welcome</a>
-        <a class="mobile-nav-link" href="#benefits">Benefits</a>
-        <a class="mobile-nav-link" href="#how-it-works">How It Works</a>
-        <a class="mobile-nav-link" href="#beta-perks">Perks</a>
-        <a class="mobile-nav-link mobile-nav-link--cta" href="#waitlist-footer">
-          Reserve My Spot
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="btn-icon"
-          >
-            <path d="M5 12h14"></path>
-            <path d="m12 5 7 7-7 7"></path>
-          </svg>
-        </a>
-      </nav>
-    </div>
+    <div id="nav-root"></div>
 
     <main>
       <section id="welcome" class="hero" aria-labelledby="hero-title">
@@ -273,10 +181,6 @@
             </h1>
             <p class="hero-sub">
               Grow your games inside a mutual discovery network of playable ads. Ad creation is on us!
-            </p>
-            <p class="hero-note form-lead-text">
-              Early access launching soon. Join the waitlist now and we will let
-              you know as soon as we are ready.
             </p>
 
             <form
@@ -328,7 +232,7 @@
                   required
                 />
                 <button class="btn btn-primary" type="submit">
-                  Get Early Access
+                  Sign Up Free
                   <svg
                     width="16"
                     height="16"
@@ -347,10 +251,6 @@
               </div>
               <p class="form-status" role="status" aria-live="polite"></p>
             </form>
-            <div class="form-perk form-perk--static" aria-label="Early access perks">
-              <i data-lucide="gem" class="form-perk__icon" aria-hidden="true"></i>
-              <span class="form-perk__label">Early Access Perks Included</span>
-            </div>
           </div>
 
           <div class="hero-right">
@@ -576,74 +476,6 @@
       </section>
 
       <section
-        id="beta-perks"
-        class="section beta-perks-section"
-        aria-labelledby="beta-perks-heading"
-      >
-        <div class="container">
-          <div class="section-intro section-intro--beta-perks">
-            <h2 id="beta-perks-heading" class="section-title">
-              Early Access Perks
-            </h2>
-          </div>
-
-          <div class="beta-perks-grid" role="list" aria-label="Beta perks list">
-            <article class="beta-perks-card" role="listitem">
-              <div class="beta-perks-card__icon" aria-hidden="true">
-                <i
-                  data-lucide="life-buoy"
-                  class="beta-perks-card__icon-svg"
-                ></i>
-              </div>
-              <h3 class="beta-perks-card__title">Hands-on support</h3>
-              <p class="beta-perks-card__text">
-                Get direct support to help you launch your demo smoothly and get
-                it ready for discovery.
-              </p>
-            </article>
-
-            <article class="beta-perks-card" role="listitem">
-              <div class="beta-perks-card__icon" aria-hidden="true">
-                <i
-                  data-lucide="lightbulb"
-                  class="beta-perks-card__icon-svg"
-                ></i>
-              </div>
-              <h3 class="beta-perks-card__title">
-                Priority consideration
-              </h3>
-              <p class="beta-perks-card__text">
-                Get priority consideration for features that support your game’s
-                needs as the platform grows.
-              </p>
-            </article>
-
-            <article class="beta-perks-card" role="listitem">
-              <div class="beta-perks-card__icon" aria-hidden="true">
-                <i data-lucide="award" class="beta-perks-card__icon-svg"></i>
-              </div>
-              <h3 class="beta-perks-card__title">Early partner advantage</h3>
-              <p class="beta-perks-card__text">
-                Get a head start in the network with partner perks reserved for
-                studios joining early.
-              </p>
-            </article>
-
-            <article class="beta-perks-card" role="listitem">
-              <div class="beta-perks-card__icon" aria-hidden="true">
-                <i data-lucide="megaphone" class="beta-perks-card__icon-svg"></i>
-              </div>
-              <h3 class="beta-perks-card__title">Free first ads</h3>
-              <p class="beta-perks-card__text">
-                We build your first playable ads from your game to help you get
-                started.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section
         id="waitlist-footer"
         class="section footer-waitlist-section"
         aria-labelledby="footer-waitlist-heading"
@@ -653,8 +485,8 @@
             Don't miss out
           </h2>
           <p class="section-lead footer-waitlist-lead form-lead-text">
-            Want to be the first to know when we launch? Sign up now and we will
-            notify you.
+            Join the discovery network and start reaching new players with
+            playable ads. Sign up free to get started.
           </p>
 
           <form
@@ -706,7 +538,7 @@
                 required
               />
               <button class="btn btn-primary" type="submit">
-                Reserve my spot
+                Sign Up Free
                 <svg
                   width="16"
                   height="16"
@@ -725,13 +557,6 @@
             </div>
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
-          <div
-            class="form-perk form-perk--footer form-perk--static"
-            aria-label="Early access perks"
-          >
-            <i data-lucide="gem" class="form-perk__icon" aria-hidden="true"></i>
-            <span class="form-perk__label">Early Access Perks Included</span>
-          </div>
         </div>
       </section>
     </main>
@@ -872,6 +697,7 @@
     </dialog>
 
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/nav.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

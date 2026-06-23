@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Consent Mode v2 defaults (must run before GTM loads) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+      });
+
+      (function () {
+        var COOKIE = "noga_cookie_consent";
+
+        function getConsentCookie() {
+          var parts = ("; " + document.cookie).split("; " + COOKIE + "=");
+          if (parts.length !== 2) return null;
+          var raw = decodeURIComponent(parts.pop().split(";").shift() || "");
+          if (!raw) return null;
+          try {
+            var d = JSON.parse(raw);
+            if (
+              d &&
+              typeof d.analytics === "boolean" &&
+              typeof d.marketing === "boolean"
+            ) {
+              return d;
+            }
+          } catch (e) {}
+          return null;
+        }
+
+        function applyGtagUpdate(analytics, marketing) {
+          gtag("consent", "update", {
+            analytics_storage: analytics ? "granted" : "denied",
+            ad_storage: marketing ? "granted" : "denied",
+            ad_user_data: marketing ? "granted" : "denied",
+            ad_personalization: marketing ? "granted" : "denied",
+            personalization_storage: marketing ? "granted" : "denied",
+          });
+        }
+
+        window.NogaConsent = {
+          COOKIE_NAME: COOKIE,
+          getStored: getConsentCookie,
+          applyGtagUpdate: applyGtagUpdate,
+          pushConsentEvent: function (analytics, marketing) {
+            dataLayer.push({
+              event: "cookie_consent_update",
+              consent_analytics: analytics ? "granted" : "denied",
+              consent_marketing: marketing ? "granted" : "denied",
+            });
+          },
+        };
+
+        var stored = getConsentCookie();
+        if (stored) {
+          applyGtagUpdate(stored.analytics, stored.marketing);
+        }
+      })();
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KQXPWV6V");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta
+      name="description"
+      content="Guides, case studies, tools, and insights for mobile game developers and UA teams. Everything you need to grow your game."
+    />
+    <meta property="og:title" content="Resources | Noga Labs" />
+    <meta
+      property="og:description"
+      content="Guides, case studies, tools, and insights for mobile game developers and UA teams."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nogalabs.com/resources/" />
+    <meta
+      property="og:image"
+      content="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Resources | Noga Labs" />
+    <meta
+      name="twitter:description"
+      content="Guides, case studies, tools, and insights for mobile game developers and UA teams."
+    />
+    <link rel="canonical" href="https://nogalabs.com/resources/" />
+    <title>Resources | Noga Labs</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/resources.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KQXPWV6V"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="nav-root"></div>
+
+    <main>
+      <!-- Hero — 3-column editorial layout -->
+      <section class="hero hero--resources" aria-labelledby="resources-hero-title">
+        <div class="resources-hero-grid">
+
+          <!-- Col 1: editorial text -->
+          <div class="resources-hero-text">
+            <p class="hero-eyebrow">Resources</p>
+            <h1 id="resources-hero-title" class="hero-title">
+              Everything you need to grow your mobile game
+            </h1>
+            <p class="hero-sub">
+              Guides, playbooks, and insights for mobile game developers and UA teams.
+            </p>
+            <div class="hero-category-chips">
+              <a href="#resources-list" data-filter="all"   class="chip chip--active">All</a>
+              <a href="#resources-list" data-filter="guide" class="chip">Guides</a>
+              <a href="#resources-list" data-filter="blog"  class="chip">Blog</a>
+              <a href="#resources-list" data-filter="tool"  class="chip">Tools</a>
+            </div>
+          </div>
+
+          <!-- Col 2: featured article -->
+          <a href="mobile-game-ua-guide/index.html" class="resources-featured">
+            <div class="resources-featured__image resources-featured__image--guide"></div>
+            <div class="resources-featured__content">
+              <span class="resource-badge resource-badge--guide">Guide</span>
+              <h2 class="resources-featured__title">
+                The Ultimate Guide to Mobile Game UA for Indie Developers
+              </h2>
+              <p class="resources-featured__excerpt">
+                Every channel, metric, and creative decision you need to run UA profitably — CPI, LTV, playable ads, cross-promotion, ASO, and budget strategy in one place.
+              </p>
+              <span class="resources-featured__meta">18 min read</span>
+            </div>
+          </a>
+
+          <!-- Col 3: secondary articles -->
+          <div class="resources-secondary">
+
+            <a href="playable-ads-101/index.html" class="resources-secondary__card">
+              <div class="resources-secondary__image resources-secondary__image--guide"></div>
+              <div class="resources-secondary__content">
+                <span class="resource-badge resource-badge--guide">Guide</span>
+                <h3 class="resources-secondary__title">Playable Ads 101: What They Are and Why They Work</h3>
+                <span class="resources-secondary__meta">8 min read</span>
+              </div>
+            </a>
+
+            <a href="#" class="resources-secondary__card">
+              <div class="resources-secondary__image resources-secondary__image--blog"></div>
+              <div class="resources-secondary__content">
+                <span class="resource-badge resource-badge--blog">Blog</span>
+                <h3 class="resources-secondary__title">Mobile Game UA Trends to Watch in 2026</h3>
+                <span class="resources-secondary__meta">5 min read</span>
+              </div>
+            </a>
+
+            <a href="#" class="resources-secondary__card">
+              <div class="resources-secondary__image resources-secondary__image--tool"></div>
+              <div class="resources-secondary__content">
+                <span class="resource-badge resource-badge--tool">Tool</span>
+                <h3 class="resources-secondary__title">UA Budget Planner — Free Spreadsheet</h3>
+                <span class="resources-secondary__meta">Free download</span>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Resources list -->
+      <section
+        id="resources-list"
+        class="section resources-section"
+        aria-label="Browse resources"
+      >
+        <div class="container">
+          <ul class="resources-list" role="list">
+
+            <li class="resource-card" data-category="guide">
+              <article class="resource-card__inner">
+                <div class="resource-card__image resource-card__image--guide" role="img" aria-label="Mobile Game UA Guide thumbnail"></div>
+                <div class="resource-card__content">
+                  <span class="resource-badge resource-badge--guide">Guide</span>
+                  <h2 class="resource-card__title">
+                    The Ultimate Guide to Mobile Game UA for Indie Developers
+                  </h2>
+                  <p class="resource-card__excerpt">
+                    Every channel, metric, and creative decision you need to run UA profitably — CPI, LTV, playable ads, cross-promotion, ASO, and budget strategy all in one place.
+                  </p>
+                  <footer class="resource-card__footer">
+                    <span class="resource-card__meta">18 min read</span>
+                    <a href="mobile-game-ua-guide/index.html" class="resource-card__link">
+                      Read more
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </footer>
+                </div>
+              </article>
+            </li>
+
+            <li class="resource-card" data-category="blog">
+              <article class="resource-card__inner">
+                <div class="resource-card__image resource-card__image--blog" role="img" aria-label="UA Trends article thumbnail"></div>
+                <div class="resource-card__content">
+                  <span class="resource-badge resource-badge--blog">Blog</span>
+                  <h2 class="resource-card__title">
+                    Mobile Game UA Trends to Watch in 2026
+                  </h2>
+                  <p class="resource-card__excerpt">
+                    Privacy changes, AI-generated creatives, and cross-game discovery networks are reshaping user acquisition. Here's what's working now.
+                  </p>
+                  <footer class="resource-card__footer">
+                    <span class="resource-card__meta">5 min read</span>
+                    <a href="#" class="resource-card__link">
+                      Read more
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </footer>
+                </div>
+              </article>
+            </li>
+
+            <li class="resource-card" data-category="guide">
+              <article class="resource-card__inner">
+                <div class="resource-card__image resource-card__image--guide" role="img" aria-label="Playable Ads 101 thumbnail"></div>
+                <div class="resource-card__content">
+                  <span class="resource-badge resource-badge--guide">Guide</span>
+                  <h2 class="resource-card__title">
+                    Playable Ads 101: What They Are and Why They Work
+                  </h2>
+                  <p class="resource-card__excerpt">
+                    A hands-on introduction to playable ad formats — how they differ from static and video ads, why players engage more, and how to build your first one.
+                  </p>
+                  <footer class="resource-card__footer">
+                    <span class="resource-card__meta">8 min read</span>
+                    <a href="playable-ads-101/index.html" class="resource-card__link">
+                      Read more
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </footer>
+                </div>
+              </article>
+            </li>
+
+            <li class="resource-card" data-category="guide">
+              <article class="resource-card__inner">
+                <div class="resource-card__image resource-card__image--guide" role="img" aria-label="Creative brief article thumbnail"></div>
+                <div class="resource-card__content">
+                  <span class="resource-badge resource-badge--guide">Guide</span>
+                  <h2 class="resource-card__title">
+                    How to Write a Winning Creative Brief for Your Ad Team
+                  </h2>
+                  <p class="resource-card__excerpt">
+                    The creative brief is where most campaigns win or lose. Learn the key sections every brief needs, and common mistakes that kill performance.
+                  </p>
+                  <footer class="resource-card__footer">
+                    <span class="resource-card__meta">6 min read</span>
+                    <a href="#" class="resource-card__link">
+                      Read more
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </footer>
+                </div>
+              </article>
+            </li>
+
+            <li class="resource-card" data-category="tool">
+              <article class="resource-card__inner">
+                <div class="resource-card__image resource-card__image--tool" role="img" aria-label="Budget planner tool thumbnail"></div>
+                <div class="resource-card__content">
+                  <span class="resource-badge resource-badge--tool">Tool</span>
+                  <h2 class="resource-card__title">
+                    UA Budget Planner — Free Spreadsheet Template
+                  </h2>
+                  <p class="resource-card__excerpt">
+                    Model your user acquisition spend across channels, set CPI targets, and forecast ROAS — all in a ready-to-use Google Sheets template.
+                  </p>
+                  <footer class="resource-card__footer">
+                    <span class="resource-card__meta">Free download</span>
+                    <a href="#" class="resource-card__link">
+                      Get template
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </footer>
+                </div>
+              </article>
+            </li>
+
+            <li class="resource-card" data-category="blog">
+              <article class="resource-card__inner">
+                <div class="resource-card__image resource-card__image--blog" role="img" aria-label="Metrics article thumbnail"></div>
+                <div class="resource-card__content">
+                  <span class="resource-badge resource-badge--blog">Blog</span>
+                  <h2 class="resource-card__title">
+                    5 Metrics Every Mobile Game Marketer Should Track
+                  </h2>
+                  <p class="resource-card__excerpt">
+                    Beyond CPI and ROAS — the five metrics that actually tell you whether your UA strategy is healthy, and how to improve each one.
+                  </p>
+                  <footer class="resource-card__footer">
+                    <span class="resource-card__meta">4 min read</span>
+                    <a href="#" class="resource-card__link">
+                      Read more
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </footer>
+                </div>
+              </article>
+            </li>
+
+            <li class="resource-card" data-category="guide">
+              <article class="resource-card__inner">
+                <div class="resource-card__image resource-card__image--guide" role="img" aria-label="Cross-promotion article thumbnail"></div>
+                <div class="resource-card__content">
+                  <span class="resource-badge resource-badge--guide">Guide</span>
+                  <h2 class="resource-card__title">
+                    Cross-Promotion Between Games: A Developer's Playbook
+                  </h2>
+                  <p class="resource-card__excerpt">
+                    If you have more than one game in your portfolio, cross-promotion is one of the most cost-efficient UA channels available. Here's how to set it up right.
+                  </p>
+                  <footer class="resource-card__footer">
+                    <span class="resource-card__meta">10 min read</span>
+                    <a href="#" class="resource-card__link">
+                      Read more
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </footer>
+                </div>
+              </article>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="/" class="footer-logo-link" aria-label="Noga Labs">
+          <img
+            class="footer-logo-img"
+            src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black.png"
+            width="200"
+            height="54"
+            alt=""
+          />
+        </a>
+        <p class="footer-brand">
+          © <span id="year"></span> Noga Labs. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <div
+      id="cookie-consent-banner"
+      class="cookie-consent"
+      role="region"
+      aria-label="Cookie consent"
+      aria-hidden="true"
+      hidden
+    >
+      <div class="cookie-consent__inner">
+        <p class="cookie-consent__text">
+          We use cookies to understand how our site is used and to measure
+          marketing effectiveness. You can accept all, reject non-essential
+          cookies, or manage preferences.
+        </p>
+        <div class="cookie-consent__actions">
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-reject-all">Essentials Only</button>
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-manage">Manage Preferences</button>
+          <button type="button" class="btn btn-cookie btn-cookie--primary"   id="cookie-accept-all">Accept All</button>
+        </div>
+      </div>
+    </div>
+
+    <dialog
+      id="cookie-preferences-dialog"
+      class="cookie-preferences"
+      aria-labelledby="cookie-prefs-title"
+    >
+      <div class="cookie-preferences__panel">
+        <h2 id="cookie-prefs-title" class="cookie-preferences__title">Cookie preferences</h2>
+        <p class="cookie-preferences__intro">
+          Choose which optional cookies we may use. Strictly necessary cookies
+          are always on. You can change this later by clearing site data for
+          this domain.
+        </p>
+        <div class="cookie-preferences__options">
+          <div class="cookie-pref-row">
+            <div class="cookie-pref-row__text">
+              <span class="cookie-pref-row__name" id="pref-analytics-label">Analytics</span>
+              <p class="cookie-pref-row__desc" id="pref-analytics-desc">Helps us measure traffic and improve the site (for example, Google Analytics).</p>
+            </div>
+            <label class="cookie-switch">
+              <input type="checkbox" id="pref-analytics" aria-labelledby="pref-analytics-label" aria-describedby="pref-analytics-desc" />
+              <span class="cookie-switch__ui" aria-hidden="true"></span>
+            </label>
+          </div>
+          <div class="cookie-pref-row">
+            <div class="cookie-pref-row__text">
+              <span class="cookie-pref-row__name" id="pref-marketing-label">Marketing</span>
+              <p class="cookie-pref-row__desc" id="pref-marketing-desc">Allows us to measure ad effectiveness and show relevant content.</p>
+            </div>
+            <label class="cookie-switch">
+              <input type="checkbox" id="pref-marketing" aria-labelledby="pref-marketing-label" aria-describedby="pref-marketing-desc" />
+              <span class="cookie-switch__ui" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+        <div class="cookie-preferences__actions">
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-prefs-cancel">Cancel</button>
+          <button type="button" class="btn btn-cookie btn-cookie--primary"   id="cookie-prefs-save">Save preferences</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/resources.js"></script>
+  </body>
+</html>

@@ -9,6 +9,7 @@
   --primary-gradient: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
   --primary-hover: #0284c7;
   --primary-pressed: #0369a1;
+  --hero-surface: #0284c7;
   --accent: #0ea5e9;
   --accent-line: #38bdf8;
   --timeline-accent: #2563eb; /* Blue for timeline */
@@ -29,7 +30,7 @@
   --font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --track-head: -0.03em;
   --mobile-pad: 24px;
-  --header-h: 72px;
+  --header-h: 80px;
   --container-max: 1280px;
   --container-pad: 1rem;
   --hero-gap: clamp(2.25rem, 3.5vw, 3.75rem);
@@ -107,11 +108,47 @@ body::before {
 
 /* Glass */
 .glass-header {
-  background: rgba(224, 242, 254, 0.9);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
-  border-bottom: 1px solid rgba(14, 165, 233, 0.2);
-  border-top: 3px solid var(--primary);
+  background: var(--hero-surface);
+  border-bottom: none;
+  border-top: none;
+}
+
+.glass-header .header-inner {
+  max-width: none;
+  padding-left: var(--content-inset);
+  padding-right: var(--content-inset);
+}
+
+.glass-header .nav-link {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.glass-header .nav-link:hover {
+  color: #ffffff;
+}
+
+.glass-header .nav-toggle {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.glass-header .nav-toggle-bar {
+  background: #ffffff;
+}
+
+.glass-header .btn-header {
+  background: #ffffff;
+  color: var(--primary-pressed);
+  box-shadow: 0 2px 8px rgba(2, 6, 23, 0.15);
+}
+
+.glass-header .btn-header:hover {
+  filter: none;
+  background: #f0f9ff;
+  box-shadow: 0 4px 12px rgba(2, 6, 23, 0.18);
+}
+
+.glass-header .btn-header:active {
+  background: #e0f2fe;
 }
 
 /* Header */
@@ -126,14 +163,14 @@ body::before {
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.5rem;
-  min-height: 64px;
-  padding-block: 0.5rem;
+  min-height: 80px;
+  padding-block: 1rem;
 }
 
 @media (min-width: 768px) {
   .header-inner {
-    grid-template-columns: minmax(140px, 1fr) auto minmax(140px, 1fr);
-    gap: 1rem;
+    grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr);
+    gap: 1.5rem;
   }
 
   .logo-link {
@@ -157,6 +194,11 @@ body::before {
 }
 
 @media (max-width: 767px) {
+  .glass-header .header-inner {
+    padding-left: var(--mobile-pad);
+    padding-right: var(--mobile-pad);
+  }
+
   .header-inner {
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
@@ -218,7 +260,7 @@ body::before {
 
   .logo-img--desktop {
     display: block;
-    max-height: 52px;
+    max-height: 56px;
   }
 }
 
@@ -432,18 +474,37 @@ body::before {
 }
 
 /* Hero — flex layout; left matches container grid, right bleeds to edge */
+/* Zigzag teeth cut into the bottom-left corner (6 teeth, 32px wide × 24px deep) */
 .hero {
-  background: var(--primary-gradient);
+  background: var(--hero-surface);
   overflow: hidden;
-  border-bottom-left-radius: 64px;
-  border-bottom-right-radius: 0;
+  position: relative;
+  z-index: 1;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    192px 100%,
+    176px calc(100% - 24px),
+    160px 100%,
+    144px calc(100% - 24px),
+    128px 100%,
+    112px calc(100% - 24px),
+    96px  100%,
+    80px  calc(100% - 24px),
+    64px  100%,
+    48px  calc(100% - 24px),
+    32px  100%,
+    16px  calc(100% - 24px),
+    0     100%
+  );
 }
 
 .hero-inner {
   display: flex;
   width: 100%;
   gap: var(--hero-gap);
-  align-items: stretch;
+  align-items: flex-start;
   padding-left: var(--content-inset);
   padding-right: 0;
 }
@@ -455,7 +516,7 @@ body::before {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 4rem clamp(1rem, 2vw, 2rem) 4rem 0;
 }
 
@@ -463,8 +524,9 @@ body::before {
   flex: 1 1 0;
   min-width: 0;
   display: flex;
+  flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: flex-start;
   overflow: hidden;
   padding-top: 4rem;
 }
@@ -474,14 +536,36 @@ body::before {
 }
 
 @media (max-width: 767px) {
+  /* Smaller zigzag on mobile: 5 teeth, 24px wide × 16px deep */
   .hero {
-    border-bottom-left-radius: 32px;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      120px 100%,
+      108px calc(100% - 16px),
+      96px  100%,
+      84px  calc(100% - 16px),
+      72px  100%,
+      60px  calc(100% - 16px),
+      48px  100%,
+      36px  calc(100% - 16px),
+      24px  100%,
+      12px  calc(100% - 16px),
+      0     100%
+    );
+  }
+
+  .benefits-section {
+    margin-top: -16px;
+    padding-top: calc(clamp(3rem, 6vw, 5rem) + 16px);
   }
 
   .hero-inner {
     flex-direction: column;
     gap: 1.5rem;
     padding-left: 0;
+    align-items: stretch;
   }
 
   .hero-left {
@@ -511,8 +595,8 @@ body::before {
 
 .hero-title {
   margin: 0 0 1.25rem;
-  font-size: clamp(2.25rem, 6vw, 3.5rem);
-  font-weight: 800;
+  font-size: clamp(1.875rem, 4.5vw, 2.875rem);
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.03em;
   color: #ffffff;
@@ -520,7 +604,7 @@ body::before {
 
 .hero-sub {
   margin: 0 0 1.5rem;
-  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+  font-size: clamp(0.9375rem, 1.75vw, 1.0625rem);
   font-weight: 500;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.85);
@@ -528,11 +612,11 @@ body::before {
 
 @media (min-width: 992px) {
   .hero-title {
-    font-size: clamp(2.25rem, 4vw, 3.125rem);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
   }
 
   .hero-sub {
-    font-size: 1.3125rem;
+    font-size: 1.0625rem;
     line-height: 1.6;
   }
 }
@@ -1170,15 +1254,19 @@ body::before {
 }
 
 .benefits-section {
-  background: var(--bento-bg);
+  background: #ffffff;
   border-top: none;
   border-bottom: none;
-  color: #ffffff;
+  color: var(--text);
+  position: relative;
+  /* Slide up under the hero so its white bg shows through the zigzag notches */
+  margin-top: -24px;
+  padding-top: calc(clamp(3rem, 6vw, 5rem) + 24px);
 }
 
 .benefits-section .section-title,
 .benefits-section .section-lead {
-  color: #ffffff;
+  color: var(--text);
 }
 
 .benefits-section .section-title {

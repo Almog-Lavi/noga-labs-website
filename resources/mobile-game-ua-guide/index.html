@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Consent Mode v2 defaults — [KEEP] -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("consent", "default", {
+        ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied",
+        analytics_storage: "denied", functionality_storage: "denied",
+        personalization_storage: "denied", security_storage: "granted",
+        wait_for_update: 500,
+      });
+      (function () {
+        var COOKIE = "noga_cookie_consent";
+        function getConsentCookie() {
+          var parts = ("; " + document.cookie).split("; " + COOKIE + "=");
+          if (parts.length !== 2) return null;
+          var raw = decodeURIComponent(parts.pop().split(";").shift() || "");
+          if (!raw) return null;
+          try { var d = JSON.parse(raw); if (d && typeof d.analytics === "boolean" && typeof d.marketing === "boolean") return d; } catch (e) {}
+          return null;
+        }
+        function applyGtagUpdate(analytics, marketing) {
+          gtag("consent", "update", {
+            analytics_storage: analytics ? "granted" : "denied",
+            ad_storage: marketing ? "granted" : "denied",
+            ad_user_data: marketing ? "granted" : "denied",
+            ad_personalization: marketing ? "granted" : "denied",
+            personalization_storage: marketing ? "granted" : "denied",
+          });
+        }
+        window.NogaConsent = {
+          COOKIE_NAME: COOKIE, getStored: getConsentCookie, applyGtagUpdate: applyGtagUpdate,
+          pushConsentEvent: function (a, m) { dataLayer.push({ event: "cookie_consent_update", consent_analytics: a ? "granted" : "denied", consent_marketing: m ? "granted" : "denied" }); },
+        };
+        var stored = getConsentCookie();
+        if (stored) applyGtagUpdate(stored.analytics, stored.marketing);
+      })();
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true; j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KQXPWV6V");
+    </script>
+
+    <title>The Ultimate Guide to Mobile Game UA for Indie Developers | Noga Labs</title>
+    <meta name="description" content="A comprehensive, numbers-driven guide to mobile game user acquisition for indie developers — covering CPI, LTV, playable ads, cross-promotion, ASO, and budget strategy." />
+    <link rel="canonical" href="https://nogalabs.com/resources/mobile-game-ua-guide/" />
+
+    <meta property="og:type"        content="article" />
+    <meta property="og:url"         content="https://nogalabs.com/resources/mobile-game-ua-guide/" />
+    <meta property="og:title"       content="The Ultimate Guide to Mobile Game UA for Indie Developers" />
+    <meta property="og:description" content="A comprehensive, numbers-driven guide to mobile game user acquisition for indie developers — covering CPI, LTV, playable ads, cross-promotion, ASO, and budget strategy." />
+    <meta property="og:image"       content="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png" />
+    <meta property="article:published_time" content="2026-06-23T00:00:00Z" />
+    <meta property="article:modified_time"  content="2026-06-23T00:00:00Z" />
+    <meta property="article:author"         content="Noga Labs Team" />
+
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="The Ultimate Guide to Mobile Game UA for Indie Developers" />
+    <meta name="twitter:description" content="A comprehensive, numbers-driven guide to mobile game user acquisition — CPI, LTV, playable ads, cross-promotion, ASO, and budget strategy." />
+    <meta name="twitter:image"       content="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nogalabs.com/resources/mobile-game-ua-guide/"
+      },
+      "headline": "The Ultimate Guide to Mobile Game User Acquisition (UA) for Indie Developers",
+      "description": "A comprehensive, numbers-driven guide to mobile game user acquisition for indie developers — covering CPI, LTV, playable ads, cross-promotion, ASO, and budget strategy.",
+      "image": [
+        "https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png"
+      ],
+      "datePublished": "2026-06-23",
+      "dateModified": "2026-06-23",
+      "author": {
+        "@type": "Person",
+        "name": "Noga Labs Team",
+        "jobTitle": "Mobile Growth Team",
+        "sameAs": ["https://www.linkedin.com/company/noga-labs"]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Noga Labs",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black.png"
+        }
+      },
+      "isAccessibleForFree": "True",
+      "keywords": [
+        "mobile game user acquisition",
+        "UA for indie developers",
+        "mobile game marketing",
+        "CPI LTV ROAS",
+        "playable ads",
+        "app store optimisation"
+      ]
+    }
+    </script>
+
+    <link rel="icon"            type="image/png" href="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png" />
+    <link rel="apple-touch-icon"                 href="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/article.css" />
+    <link rel="stylesheet" href="../../css/article-tables.css" />
+  </head>
+
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXPWV6V" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <div id="nav-root"></div>
+
+    <main>
+
+      <div class="article-hero article-hero--placeholder-guide" role="img" aria-label="Mobile Game UA Guide hero"></div>
+
+      <div class="article-wrap">
+        <div class="article-container">
+
+          <nav class="article-breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="article-breadcrumb__sep" aria-hidden="true">›</span>
+            <a href="../index.html">Resources</a>
+            <span class="article-breadcrumb__sep" aria-hidden="true">›</span>
+            <span class="article-breadcrumb__current">Mobile Game UA Guide</span>
+          </nav>
+
+          <header class="article-header">
+            <span class="article-category article-category--guide">Guide</span>
+            <h1 class="article-title">
+              The Ultimate Guide to Mobile Game User Acquisition (UA) for Indie Developers
+            </h1>
+            <div class="article-meta">
+              <a href="https://www.linkedin.com/company/noga-labs" class="article-author" target="_blank" rel="noopener noreferrer">
+                <div class="article-author__avatar" aria-hidden="true">NL</div>
+                <div>
+                  <div class="article-author__name">Noga Labs Team</div>
+                  <div class="article-author__role">Mobile Growth</div>
+                </div>
+              </a>
+              <span class="article-meta__divider" aria-hidden="true"></span>
+              <span class="article-meta__item"><time datetime="2026-06-23">Jun 23, 2026</time></span>
+              <span class="article-meta__divider" aria-hidden="true"></span>
+              <span class="article-meta__item">18 min read</span>
+            </div>
+          </header>
+
+          <article class="article-body">
+
+            <p>You built a great game. The UA bill is about to humble you. Mobile game user acquisition is the discipline of finding players who will actually pay (or watch ads) — at a cost lower than what they're worth to you. Get that math right and you have a business. Get it wrong and you have an expensive hobby.</p>
+
+            <p>This guide covers every channel, metric, and creative decision you need to run UA profitably — without a $50k/month agency or a war chest from a publisher.</p>
+
+            <div class="article-callout">
+              <strong>Executive Summary</strong>
+              <ul>
+                <li><strong>The only metric that matters is LTV:CPI ratio.</strong> If a player costs you more to acquire than they generate over their lifetime, you are paying to lose. Every tactical decision in this guide flows from that one equation.</li>
+                <li><strong>Playable ads outperform video and static on mobile</strong> — 2–5× higher CVR — because they filter for intent before the install. Start there.</li>
+                <li><strong>Cross-promotion is the most underused, lowest-cost UA channel</strong> for developers with more than one game. A mutual discovery network (like Noga Labs) eliminates the media buy entirely.</li>
+              </ul>
+            </div>
+
+            <nav class="article-toc" aria-label="Table of contents">
+              <p class="article-toc__label">In this guide</p>
+              <ol class="article-toc__list">
+                <li><a href="#the-math">The Math Every UA Manager Must Know</a></li>
+                <li><a href="#choosing-channels">How to Choose UA Channels</a></li>
+                <li><a href="#paid-ua">Paid UA: Meta, Google UAC, and Ad Networks</a></li>
+                <li><a href="#playable-ads">Playable Ads: The Highest-Converting Creative Format</a></li>
+                <li><a href="#cross-promo">Cross-Promotion and Mutual Discovery Networks</a></li>
+                <li><a href="#organic">Organic UA: ASO, Influencers, and Community</a></li>
+                <li><a href="#creative">Creative Strategy and Testing Framework</a></li>
+                <li><a href="#budget">How to Set and Manage a UA Budget</a></li>
+                <li><a href="#kpis">Measuring What Matters: Your KPI Stack</a></li>
+                <li><a href="#mistakes">Common Mistakes to Avoid</a></li>
+              </ol>
+            </nav>
+
+            <!-- ─── Section 1 ─────────────────────────────────────────────── -->
+            <h2 id="the-math">1. The Math Every UA Manager Must Know</h2>
+
+            <h3>What is CPI, LTV, and ROAS — and how do they connect?</h3>
+
+            <p>Every UA campaign lives or dies on three numbers:</p>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Metric</th><th>Definition</th><th>Formula</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>CPI</strong> (Cost Per Install)</td><td>What you pay per new player</td><td>Total ad spend ÷ Total installs</td></tr>
+                  <tr><td><strong>LTV</strong> (Lifetime Value)</td><td>Revenue a player generates over their entire time in your game</td><td>ARPU × Average session lifespan</td></tr>
+                  <tr><td><strong>ROAS</strong> (Return on Ad Spend)</td><td>How much revenue you earn per dollar spent</td><td>Total revenue from campaign ÷ Total ad spend</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>How to calculate if a campaign is profitable</h3>
+
+            <p>The core equation:</p>
+
+            <pre><code>LTV:CPI Ratio = LTV / CPI
+
+Break-even:        LTV:CPI = 1.0   → you recover what you spent
+Minimum viable:    LTV:CPI = 1.3   → 30% margin to cover costs
+Healthy:           LTV:CPI ≥ 2.0   → sustainable scale
+
+Example:
+  LTV = $2.00   CPI = $1.20
+  LTV:CPI = 2.00 / 1.20 = 1.67  ✓ viable</code></pre>
+
+            <h3>Why D1, D7, and D30 retention are your leading indicators</h3>
+
+            <p>You won't know true LTV for months. Retention rates are your early signal:</p>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Benchmark</th><th>Casual</th><th>Mid-Core</th><th>Hard-Core</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>D1 Retention</td><td>35–45%</td><td>30–40%</td><td>25–35%</td></tr>
+                  <tr><td>D7 Retention</td><td>12–18%</td><td>15–22%</td><td>18–28%</td></tr>
+                  <tr><td>D30 Retention</td><td>4–8%</td><td>6–12%</td><td>10–18%</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="article-callout">
+              If your D1 is below 30%, fix the game before scaling UA. Paid acquisition amplifies retention problems — it doesn't solve them.
+            </div>
+
+            <!-- ─── Section 2 ─────────────────────────────────────────────── -->
+            <h2 id="choosing-channels">2. How to Choose UA Channels</h2>
+
+            <h3>Which UA channel is right for your game's stage?</h3>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Stage</th><th>Budget</th><th>Best Channels</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Pre-launch / Soft launch</td><td>$0–$5k/mo</td><td>ASO, organic social, cross-promo</td></tr>
+                  <tr><td>Early scale</td><td>$5k–$25k/mo</td><td>Meta Advantage+, Google UAC, playable ad networks</td></tr>
+                  <tr><td>Growth</td><td>$25k–$100k/mo</td><td>Add ironSource, AppLovin, Unity Ads, retargeting</td></tr>
+                  <tr><td>Scale</td><td>$100k+/mo</td><td>Full-funnel: paid + influencer + programmatic</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>How to evaluate a new UA channel in 3 steps</h3>
+
+            <ol>
+              <li><strong>Run a small test budget</strong> (10–15% of monthly spend) for 14 days minimum — algorithms need time to exit the learning phase.</li>
+              <li><strong>Compare blended CPI against your target.</strong> Never judge a channel on the first week; Meta and Google campaigns typically drop CPI 20–35% between day 7 and day 21 as the algorithm optimises.</li>
+              <li><strong>Check install quality, not just volume.</strong> A channel delivering $0.30 CPI but 2% D1 retention is worse than $1.50 CPI with 40% D1 retention.</li>
+            </ol>
+
+            <!-- ─── Section 3 ─────────────────────────────────────────────── -->
+            <h2 id="paid-ua">3. Paid UA: Meta, Google UAC, and Ad Networks</h2>
+
+            <h3>How does Meta Advantage+ work for mobile games?</h3>
+
+            <p>Meta's Advantage+ app campaigns are fully automated — you provide creatives, a budget, and a target event (install, registration, purchase), and Meta's algorithm handles audience targeting. Key settings:</p>
+
+            <ul>
+              <li><strong>Campaign objective:</strong> App installs or App events (use App events once you have 50+ conversions/week)</li>
+              <li><strong>Budget type:</strong> Daily budget, not lifetime — easier to scale and pause</li>
+              <li><strong>Creative supply:</strong> Upload 10–15 creatives per campaign. Meta rotates and auto-optimises. Replace the bottom 20% performers weekly.</li>
+              <li><strong>Attribution window:</strong> Use 7-day click / 1-day view for mobile games</li>
+            </ul>
+
+            <p><strong>Meta CPI benchmarks (2026):</strong></p>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Genre</th><th>Average CPI (Tier 1)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Hyper-casual</td><td>$0.20–$0.60</td></tr>
+                  <tr><td>Casual puzzle</td><td>$0.80–$2.00</td></tr>
+                  <tr><td>Mid-core RPG</td><td>$2.50–$6.00</td></tr>
+                  <tr><td>Strategy</td><td>$3.00–$8.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>How does Google UAC differ from Meta for game UA?</h3>
+
+            <p>Google Universal App Campaigns source inventory from Search, Play Store, YouTube, and Display Network simultaneously. You cannot choose placements — Google decides.</p>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th></th><th>Meta Advantage+</th><th>Google UAC</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Audience control</td><td>Broad automation</td><td>Full automation</td></tr>
+                  <tr><td>Creative formats</td><td>Image, video, carousel</td><td>Image, video, HTML5 playable</td></tr>
+                  <tr><td>Best for</td><td>Intent-based discovery</td><td>Existing demand capture</td></tr>
+                  <tr><td>Min data for optimisation</td><td>50 conversions/week</td><td>100 installs/day</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="article-callout">
+              <strong>Google-specific tip:</strong> HTML5 playable ads get preferential placement in Play Store search results. If you only run playables on one platform, make it Google.
+            </div>
+
+            <!-- ─── Section 4 ─────────────────────────────────────────────── -->
+            <h2 id="playable-ads">4. Playable Ads: The Highest-Converting Creative Format</h2>
+
+            <h3>Why do playable ads outperform video and static creatives?</h3>
+
+            <p>Playable ads are interactive HTML5 experiences (15–60 seconds) that let a user try your core mechanic before installing. The performance gap vs. passive formats:</p>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Format</th><th>Average CVR</th><th>Average D1 Retention (installs)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Static banner</td><td>0.5–1.5%</td><td>Baseline</td></tr>
+                  <tr><td>Video (15s)</td><td>1.5–3.5%</td><td>+5–10% vs banner</td></tr>
+                  <tr><td>Playable</td><td>4–12%</td><td>+15–25% vs banner</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>The retention lift is the critical insight. Playable installs self-select — users who install after playing your mechanic already know if they like it.</p>
+
+            <h3>How to structure a playable ad that converts</h3>
+
+            <p>Every high-performing playable follows this exact sequence:</p>
+
+            <ol>
+              <li><strong>Hook (0–3s):</strong> Animated hand prompt. No text. One gestural cue only.</li>
+              <li><strong>Core loop (3–25s):</strong> One satisfying completion of your core mechanic. Design for success — users who fail drop off at 3× the rate of users who win.</li>
+              <li><strong>Win moment (25–35s):</strong> Reward animation. This is the emotional peak — the moment that makes the player think "I want more of that."</li>
+              <li><strong>Endcard (35s+):</strong> Full-screen install CTA with app icon, star rating, and store badge. Loop the playable in the background if no tap within 3 seconds.</li>
+            </ol>
+
+            <div class="article-callout">
+              <strong>Critical constraint:</strong> Total asset size must be under 2MB. Load time above 3 seconds loses 60%+ of users before they interact.
+            </div>
+
+            <!-- ─── Section 5 ─────────────────────────────────────────────── -->
+            <h2 id="cross-promo">5. Cross-Promotion and Mutual Discovery Networks</h2>
+
+            <h3>What is cross-promotion between games and why is it underrated?</h3>
+
+            <p>Cross-promotion is showing ads for one of your games inside another game you own. For a developer with 2+ titles, it's the lowest-cost UA channel available — your marginal cost is zero, since you're using existing ad inventory.</p>
+
+            <p><strong>Cross-promotion economics:</strong></p>
+
+            <pre><code>Effective CPI from cross-promo = $0
+
+Value transferred = (LTV of cross-promoted install) × (% who install)
+
+Example:
+  10,000 DAU × 2% CTR × 15% CVR = 300 installs/day at $0 cost
+  vs $1.50 CPI paid elsewhere → $450/day saved</code></pre>
+
+            <h3>What is a mutual discovery network and how does it expand cross-promo beyond your own portfolio?</h3>
+
+            <p>A mutual discovery network extends cross-promotion to games you don't own. Developers agree to show each other's playable ads — you run their ads in your game, they run yours. No money changes hands; impressions are exchanged.</p>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th></th><th>Traditional Paid UA</th><th>Mutual Discovery Network</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Cost</td><td>$1–$8 CPI</td><td>$0 (impression barter)</td></tr>
+                  <tr><td>Audience quality</td><td>Algorithm-matched</td><td>Proven mobile gamers</td></tr>
+                  <tr><td>Setup time</td><td>1–2 weeks</td><td>Hours</td></tr>
+                  <tr><td>Minimum budget</td><td>$5,000+/mo</td><td>None</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>Noga Labs operates this model — developers in the network grow each other's install base without ad spend.</p>
+
+            <!-- ─── Section 6 ─────────────────────────────────────────────── -->
+            <h2 id="organic">6. Organic UA: ASO, Influencers, and Community</h2>
+
+            <h3>How to optimise your App Store listing (ASO) to increase organic installs</h3>
+
+            <p>App Store Optimisation (ASO) is SEO for app stores. Ranking higher in search results is free installs. The 4 elements that drive ASO ranking:</p>
+
+            <ol>
+              <li><strong>App title and subtitle:</strong> Include your primary keyword in the title. Apple indexes the title heavily; Google less so.</li>
+              <li><strong>Keyword field (iOS only):</strong> 100-character field. No spaces — use commas. Include secondary terms not in your title/description.</li>
+              <li><strong>Conversion rate of your listing page:</strong> A/B test your icon, screenshots, and preview video. A 1% lift in store CVR compounds across all traffic sources.</li>
+              <li><strong>Ratings velocity:</strong> Apps with 4.4+ stars and 1,000+ recent ratings rank meaningfully higher. Prompt happy players (post-win moments) to rate.</li>
+            </ol>
+
+            <div class="article-callout">
+              <strong>ASO benchmark to aim for:</strong> Top 10 keyword ranking in your genre drives 15–40% of total installs for successful indie titles.
+            </div>
+
+            <h3>When do influencers and content creators make sense for indie UA?</h3>
+
+            <p>Influencer UA works when your game has a strong visual hook (watchable gameplay), LTV is high enough to absorb $500–$5,000+ per sponsored video, and you have a clear attribution method (promo codes, UTM links, or installs spike tracking).</p>
+
+            <p>Avoid influencer UA before you have a D1 retention of 35%+ — viewer installs churn faster than paid installs, and a surge of low-quality installs will tank your store ranking.</p>
+
+            <!-- ─── Section 7 ─────────────────────────────────────────────── -->
+            <h2 id="creative">7. Creative Strategy and Testing Framework</h2>
+
+            <h3>How to build a creative testing pipeline</h3>
+
+            <ol>
+              <li><strong>Generate 10–15 concepts</strong> per creative cycle based on competitor analysis, player reviews, and top-performing moments in your game.</li>
+              <li><strong>Produce lightweight versions first</strong> — a static mock, a rough cut, a simple playable prototype. Test with $500–$1,000 before full production.</li>
+              <li><strong>Declare a winner at statistical significance</strong> — minimum 1,000 impressions per variant, minimum 50 conversion events. Use a 95% confidence threshold.</li>
+              <li><strong>Iterate the winner</strong> — change one variable at a time (background colour, hook, win condition). Never change two variables simultaneously.</li>
+              <li><strong>Retire creatives at fatigue</strong> — watch for CPM rising &gt;20% vs launch week. That's creative fatigue. Retire and replace.</li>
+            </ol>
+
+            <h3>What creative variables should you test first?</h3>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Priority</th><th>Variable</th><th>Impact on CVR</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Hook (first 3 seconds)</td><td>Very high</td></tr>
+                  <tr><td>2</td><td>Core mechanic shown</td><td>High</td></tr>
+                  <tr><td>3</td><td>Win vs. fail ending</td><td>High</td></tr>
+                  <tr><td>4</td><td>Endcard CTA copy</td><td>Medium</td></tr>
+                  <tr><td>5</td><td>Background / visual skin</td><td>Low–Medium</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ─── Section 8 ─────────────────────────────────────────────── -->
+            <h2 id="budget">8. How to Set and Manage a UA Budget</h2>
+
+            <h3>How much should an indie developer spend on UA?</h3>
+
+            <p>Budget should be derived from your unit economics, not from what you can afford:</p>
+
+            <pre><code>Maximum viable daily spend = (Target installs/day) × (Max CPI)
+
+Max CPI = LTV × (1 / Target LTV:CPI ratio)
+
+Example:
+  LTV = $2.00,  Target ratio = 1.5
+  Max CPI = $2.00 / 1.5 = $1.33
+  Target 200 installs/day
+  Max daily budget = 200 × $1.33 = $266/day</code></pre>
+
+            <p><strong>Rules for scaling:</strong></p>
+            <ul>
+              <li>Only increase daily budget by 20–30% at a time — larger jumps reset algorithm learning phases</li>
+              <li>Wait 5–7 days between budget increases to let the algorithm restabilise</li>
+              <li>Never scale a campaign with fewer than 50 conversions/week; the data is too thin to optimise from</li>
+            </ul>
+
+            <h3>How to allocate budget across channels</h3>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Channel Mix</th><th>When to use it</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>100% Meta</td><td>Pre-scale, testing creative concepts</td></tr>
+                  <tr><td>70% Meta / 30% Google</td><td>Early growth, validating multi-channel</td></tr>
+                  <tr><td>50/30/20 Meta/Google/Network</td><td>Scaling, reducing concentration risk</td></tr>
+                  <tr><td>Equal split across 4+ channels</td><td>Mature, high-spend campaigns only</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ─── Section 9 ─────────────────────────────────────────────── -->
+            <h2 id="kpis">9. Measuring What Matters: Your KPI Stack</h2>
+
+            <h3>What KPIs should indie UA managers track daily vs. weekly vs. monthly?</h3>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Cadence</th><th>KPIs to track</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Daily</strong></td>
+                    <td>CPI by campaign and creative · Installs by channel · D1 retention (7-day rolling avg) · Spend pacing</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Weekly</strong></td>
+                    <td>D7 retention cohort · ROAS D7 by channel · Creative fatigue (CPM trend) · LTV:CPI by cohort</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Monthly</strong></td>
+                    <td>D30 retention and LTV · Blended ROAS · Payback period · Channel diversification ratio</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>What is payback period and why does it matter for indie developers?</h3>
+
+            <pre><code>Payback period (months) = CPI / Monthly ARPU
+
+Example:
+  CPI = $2.00,  Monthly ARPU = $0.40
+  Payback = 2.00 / 0.40 = 5 months
+
+Healthy range for indie mobile games:  6–12 months
+Danger zone:                           &gt;18 months
+(cash flow will kill you before LTV arrives)</code></pre>
+
+            <!-- ─── Section 10 ────────────────────────────────────────────── -->
+            <h2 id="mistakes">10. UA for Indie Developers: Common Mistakes to Avoid</h2>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Mistake</th><th>Why it hurts</th><th>Fix</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Scaling before product-market fit</td><td>Amplifies churn, burns budget, tanks ratings</td><td>Hit D1 ≥30% before any paid spend</td></tr>
+                  <tr><td>Running one creative variant</td><td>Can't learn what works</td><td>Always run 3+ variants per campaign</td></tr>
+                  <tr><td>Optimising for installs, not events</td><td>Installs are a vanity metric</td><td>Optimise for D1 retention or first purchase event</td></tr>
+                  <tr><td>Ignoring creative fatigue</td><td>CPMs rise silently as performance decays</td><td>Set a CPM alert at +20% vs launch</td></tr>
+                  <tr><td>Single-channel dependency</td><td>One platform policy change can kill your UA overnight</td><td>Never have &gt;70% spend on one platform</td></tr>
+                  <tr><td>Treating UA as a campaign, not a system</td><td>One-off campaigns don't compound</td><td>Build a weekly creative production and testing cadence</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Summary: The Indie UA Playbook</h2>
+
+            <div class="article-table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Phase</th><th>Priority Action</th><th>Success Signal</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Pre-launch</td><td>ASO + cross-promo setup</td><td>Top 20 keyword ranking</td></tr>
+                  <tr><td>Soft launch</td><td>Test 3 creative formats, $1k budget</td><td>CVR data, D1 retention baseline</td></tr>
+                  <tr><td>Early scale</td><td>Meta Advantage+ + playable ads</td><td>LTV:CPI ≥1.3</td></tr>
+                  <tr><td>Growth</td><td>Add Google UAC + mutual discovery network</td><td>Blended CPI falling</td></tr>
+                  <tr><td>Scale</td><td>Multi-channel + retargeting + influencer</td><td>Payback period &lt;12 months</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>Ready to see what a playable ad built from your game looks like? <a href="../../index.html#waitlist-footer">Join the Noga Labs waitlist</a> and we'll show you.</p>
+
+          </article>
+
+          <aside class="article-author-bio" aria-label="About the author">
+            <div class="article-author-bio__avatar" aria-hidden="true">NL</div>
+            <div class="article-author-bio__info">
+              <p class="article-author-bio__name">Noga Labs Team</p>
+              <p class="article-author-bio__role">Mobile Growth</p>
+              <p class="article-author-bio__desc">
+                The Noga Labs team writes about mobile game marketing, user acquisition, and playable ad strategy. We're building the Game Discovery Network so developers can grow their games without overpaying for ad inventory.
+              </p>
+              <a href="https://www.linkedin.com/company/noga-labs" class="article-author-bio__linkedin" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            </div>
+          </aside>
+
+          <section class="article-related" aria-label="Related articles">
+            <h2 class="article-related__heading">More from Noga Labs</h2>
+            <ul class="article-related__list" role="list">
+              <li class="article-related__item">
+                <a href="../playable-ads-101/index.html" class="article-related__link">
+                  <div class="article-related__thumb article-related__thumb--guide" aria-hidden="true"></div>
+                  <div class="article-related__info">
+                    <span class="article-related__category">Guide</span>
+                    <span class="article-related__title">Playable Ads 101: What They Are and Why They Work</span>
+                  </div>
+                </a>
+              </li>
+              <li class="article-related__item">
+                <a href="../index.html" class="article-related__link">
+                  <div class="article-related__thumb article-related__thumb--blog" aria-hidden="true"></div>
+                  <div class="article-related__info">
+                    <span class="article-related__category">Blog</span>
+                    <span class="article-related__title">Mobile Game UA Trends to Watch in 2026</span>
+                  </div>
+                </a>
+              </li>
+              <li class="article-related__item">
+                <a href="../index.html" class="article-related__link">
+                  <div class="article-related__thumb article-related__thumb--tool" aria-hidden="true"></div>
+                  <div class="article-related__info">
+                    <span class="article-related__category">Tool</span>
+                    <span class="article-related__title">UA Budget Planner — Free Spreadsheet Template</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="../../index.html" class="footer-logo-link" aria-label="Noga Labs">
+          <img class="footer-logo-img" src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black.png" width="200" height="54" alt="" />
+        </a>
+        <p class="footer-brand">© <span id="year"></span> Noga Labs. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div id="cookie-consent-banner" class="cookie-consent" role="region" aria-label="Cookie consent" aria-hidden="true" hidden>
+      <div class="cookie-consent__inner">
+        <p class="cookie-consent__text">We use cookies to understand how our site is used and to measure marketing effectiveness. You can accept all, reject non-essential cookies, or manage preferences.</p>
+        <div class="cookie-consent__actions">
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-reject-all">Essentials Only</button>
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-manage">Manage Preferences</button>
+          <button type="button" class="btn btn-cookie btn-cookie--primary"   id="cookie-accept-all">Accept All</button>
+        </div>
+      </div>
+    </div>
+
+    <dialog id="cookie-preferences-dialog" class="cookie-preferences" aria-labelledby="cookie-prefs-title">
+      <div class="cookie-preferences__panel">
+        <h2 id="cookie-prefs-title" class="cookie-preferences__title">Cookie preferences</h2>
+        <p class="cookie-preferences__intro">Choose which optional cookies we may use. Strictly necessary cookies are always on.</p>
+        <div class="cookie-preferences__options">
+          <div class="cookie-pref-row">
+            <div class="cookie-pref-row__text">
+              <span class="cookie-pref-row__name" id="pref-analytics-label">Analytics</span>
+              <p class="cookie-pref-row__desc" id="pref-analytics-desc">Helps us measure traffic and improve the site.</p>
+            </div>
+            <label class="cookie-switch">
+              <input type="checkbox" id="pref-analytics" aria-labelledby="pref-analytics-label" aria-describedby="pref-analytics-desc" />
+              <span class="cookie-switch__ui" aria-hidden="true"></span>
+            </label>
+          </div>
+          <div class="cookie-pref-row">
+            <div class="cookie-pref-row__text">
+              <span class="cookie-pref-row__name" id="pref-marketing-label">Marketing</span>
+              <p class="cookie-pref-row__desc" id="pref-marketing-desc">Allows us to measure ad effectiveness and show relevant content.</p>
+            </div>
+            <label class="cookie-switch">
+              <input type="checkbox" id="pref-marketing" aria-labelledby="pref-marketing-label" aria-describedby="pref-marketing-desc" />
+              <span class="cookie-switch__ui" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+        <div class="cookie-preferences__actions">
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-prefs-cancel">Cancel</button>
+          <button type="button" class="btn btn-cookie btn-cookie--primary"   id="cookie-prefs-save">Save preferences</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/article.js"></script>
+  </body>
+</html>

@@ -24,34 +24,6 @@
     if (y) y.textContent = String(new Date().getFullYear());
   }
 
-  function initMobileNav() {
-    var toggle = document.getElementById("nav-toggle");
-    var drawer = document.getElementById("mobile-nav-drawer");
-    if (!toggle || !drawer) return;
-
-    function setOpen(open) {
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      drawer.setAttribute("aria-hidden", open ? "false" : "true");
-      drawer.classList.toggle("is-open", open);
-      document.body.classList.toggle("nav-open", open);
-    }
-
-    toggle.addEventListener("click", function () {
-      var open = toggle.getAttribute("aria-expanded") === "true";
-      setOpen(!open);
-    });
-
-    drawer.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        setOpen(false);
-      });
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") setOpen(false);
-    });
-  }
-
   function initHeroVideos() {
     var items = Array.prototype.slice.call(document.querySelectorAll(".hero-demo-video__item"));
     if (!items.length) return;
@@ -369,7 +341,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     fillUtmFieldsFromUrl();
     initYear();
-    initMobileNav();
     initHeroVideos();
     initVideoTracking();
     initCookieConsent();

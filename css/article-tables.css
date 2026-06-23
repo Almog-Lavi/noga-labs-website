@@ -1,0 +1,117 @@
+/* Article tables and table of contents — loaded on long-form / data-heavy articles */
+
+/* ─── Responsive table wrapper ───────────────────────────────────────────── */
+
+.article-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0 1.75em;
+  border-radius: var(--radius-ui);
+  border: 1px solid var(--border);
+}
+
+.article-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  min-width: 480px;
+}
+
+.article-table-wrap thead {
+  background: var(--bg);
+}
+
+.article-table-wrap th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.775rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.article-table-wrap td {
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.article-table-wrap tr:last-child td {
+  border-bottom: none;
+}
+
+.article-table-wrap tbody tr:hover {
+  background: var(--bg);
+}
+
+/* ─── Code / pre blocks inside article body ──────────────────────────────── */
+
+.article-body pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: var(--radius-ui);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  margin: 1.5em 0 1.75em;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  border: 1px solid #1e293b;
+}
+
+.article-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-family: 'Courier New', 'Consolas', monospace;
+  font-size: inherit;
+}
+
+/* ─── Table of contents ──────────────────────────────────────────────────── */
+
+.article-toc {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.article-toc__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.article-toc__list {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.article-toc__list li {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.article-toc__list a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.article-toc__list a:hover {
+  color: var(--primary);
+}

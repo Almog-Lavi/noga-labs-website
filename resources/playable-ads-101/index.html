@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         TEMPLATE INSTRUCTIONS
+         When creating a new article, update every value marked [EDIT].
+         Fields marked [KEEP] are shared across all articles and stay as-is.
+         ═══════════════════════════════════════════════════════════════════ -->
+
+    <!-- Consent Mode v2 defaults — [KEEP] -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("consent", "default", {
+        ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied",
+        analytics_storage: "denied", functionality_storage: "denied",
+        personalization_storage: "denied", security_storage: "granted",
+        wait_for_update: 500,
+      });
+      (function () {
+        var COOKIE = "noga_cookie_consent";
+        function getConsentCookie() {
+          var parts = ("; " + document.cookie).split("; " + COOKIE + "=");
+          if (parts.length !== 2) return null;
+          var raw = decodeURIComponent(parts.pop().split(";").shift() || "");
+          if (!raw) return null;
+          try { var d = JSON.parse(raw); if (d && typeof d.analytics === "boolean" && typeof d.marketing === "boolean") return d; } catch (e) {}
+          return null;
+        }
+        function applyGtagUpdate(analytics, marketing) {
+          gtag("consent", "update", {
+            analytics_storage: analytics ? "granted" : "denied",
+            ad_storage: marketing ? "granted" : "denied",
+            ad_user_data: marketing ? "granted" : "denied",
+            ad_personalization: marketing ? "granted" : "denied",
+            personalization_storage: marketing ? "granted" : "denied",
+          });
+        }
+        window.NogaConsent = {
+          COOKIE_NAME: COOKIE, getStored: getConsentCookie, applyGtagUpdate: applyGtagUpdate,
+          pushConsentEvent: function (a, m) { dataLayer.push({ event: "cookie_consent_update", consent_analytics: a ? "granted" : "denied", consent_marketing: m ? "granted" : "denied" }); },
+        };
+        var stored = getConsentCookie();
+        if (stored) applyGtagUpdate(stored.analytics, stored.marketing);
+      })();
+    </script>
+
+    <!-- Google Tag Manager — [KEEP] -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true; j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KQXPWV6V");
+    </script>
+
+    <!-- ── SEO meta — [EDIT each field] ────────────────────────────────── -->
+    <title>Playable Ads 101: What They Are and Why They Work | Noga Labs</title>
+    <meta name="description" content="A hands-on introduction to playable ad formats — how they differ from static and video ads, why players engage more, and how to build your first one." />
+    <link rel="canonical" href="https://nogalabs.com/resources/playable-ads-101/" />
+
+    <!-- Open Graph — [EDIT] -->
+    <meta property="og:type"        content="article" />
+    <meta property="og:url"         content="https://nogalabs.com/resources/playable-ads-101/" />
+    <meta property="og:title"       content="Playable Ads 101: What They Are and Why They Work" />
+    <meta property="og:description" content="A hands-on introduction to playable ad formats — how they differ from static and video ads, why players engage more, and how to build your first one." />
+    <meta property="og:image"       content="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png" /><!-- [EDIT] replace with article hero image -->
+    <meta property="article:published_time" content="2026-06-23T00:00:00Z" /><!-- [EDIT] -->
+    <meta property="article:modified_time"  content="2026-06-23T00:00:00Z" /><!-- [EDIT] -->
+    <meta property="article:author"         content="Noga Labs Team" /><!-- [EDIT] -->
+
+    <!-- Twitter Card — [EDIT] -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Playable Ads 101: What They Are and Why They Work" />
+    <meta name="twitter:description" content="A hands-on introduction to playable ad formats — how they differ from static and video ads, why players engage more, and how to build your first one." />
+    <meta name="twitter:image"       content="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png" /><!-- [EDIT] -->
+
+    <!-- ── BlogPosting structured data — [EDIT marked fields] ──────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nogalabs.com/resources/playable-ads-101/"
+      },
+      "headline": "Playable Ads 101: What They Are and Why They Work",
+      "description": "A hands-on introduction to playable ad formats — how they differ from static and video ads, why players engage more, and how to build your first one.",
+      "image": [
+        "https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png"
+      ],
+      "datePublished": "2026-06-23",
+      "dateModified": "2026-06-23",
+      "author": {
+        "@type": "Person",
+        "name": "Noga Labs Team",
+        "jobTitle": "Mobile Growth Team",
+        "sameAs": [
+          "https://www.linkedin.com/company/noga-labs"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Noga Labs",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black.png"
+        }
+      },
+      "isAccessibleForFree": "True",
+      "keywords": [
+        "playable ads",
+        "mobile game marketing",
+        "user acquisition"
+      ]
+    }
+    </script>
+
+    <!-- ── Shared assets — [KEEP] ───────────────────────────────────────── -->
+    <link rel="icon"            type="image/png" href="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png" />
+    <link rel="apple-touch-icon"                 href="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/article.css" />
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXPWV6V" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <!-- Nav (shared component) -->
+    <div id="nav-root"></div>
+
+    <main>
+
+      <!-- ── Hero image ─────────────────────────────────────────────────
+           Replace the class with an inline background-image style when
+           you have a real image URL:
+             style="background-image: url('https://...your-image.jpg')"
+           and remove the placeholder class.
+           ─────────────────────────────────────────────────────────────── -->
+      <div class="article-hero article-hero--placeholder-guide" role="img" aria-label="Playable Ads 101 hero image"></div>
+
+      <!-- ── Article content ───────────────────────────────────────────── -->
+      <div class="article-wrap">
+        <div class="article-container">
+
+          <!-- Breadcrumb -->
+          <nav class="article-breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="article-breadcrumb__sep" aria-hidden="true">›</span>
+            <a href="../index.html">Resources</a>
+            <span class="article-breadcrumb__sep" aria-hidden="true">›</span>
+            <span class="article-breadcrumb__current">Playable Ads 101</span>
+          </nav>
+
+          <!-- Article header — [EDIT per article] -->
+          <header class="article-header">
+            <span class="article-category article-category--guide">Guide</span>
+            <h1 class="article-title">
+              Playable Ads 101: What They Are and Why They Work
+            </h1>
+            <div class="article-meta">
+              <!-- Author — [EDIT: name, initials/avatar, role, LinkedIn href] -->
+              <a href="https://www.linkedin.com/company/noga-labs" class="article-author" target="_blank" rel="noopener noreferrer">
+                <div class="article-author__avatar" aria-hidden="true">NL</div>
+                <div>
+                  <div class="article-author__name">Noga Labs Team</div>
+                  <div class="article-author__role">Mobile Growth</div>
+                </div>
+              </a>
+              <span class="article-meta__divider" aria-hidden="true"></span>
+              <!-- Dates — [EDIT] -->
+              <span class="article-meta__item">
+                <time datetime="2026-06-23">Jun 23, 2026</time>
+              </span>
+              <span class="article-meta__divider" aria-hidden="true"></span>
+              <!-- Read time — [EDIT] -->
+              <span class="article-meta__item">8 min read</span>
+            </div>
+          </header>
+
+          <!-- Article body — [EDIT: replace with actual article content] -->
+          <article class="article-body">
+
+            <p>
+              Playable ads are interactive mini-experiences that let a potential player try a snippet of your game before they download it. Unlike a static banner or a 15-second video, a playable ad puts the controls in the user's hands — and that changes everything about how UA performs.
+            </p>
+
+            <h2>What exactly is a playable ad?</h2>
+
+            <p>
+              A playable ad is a self-contained HTML5 experience — typically 15 to 60 seconds long — that runs inside an ad slot on networks like Meta, Google UAC, ironSource, or AppLovin. The user taps, drags, or interacts with a simplified version of your game mechanic. At the end, they're shown a call-to-action to install.
+            </p>
+
+            <p>
+              They became mainstream around 2018 when platforms started supporting MRAID and HTML5 ad formats at scale, but they've become the dominant creative format for mobile games in the past two years — particularly for hyper-casual and puzzle genres.
+            </p>
+
+            <div class="article-callout">
+              <strong>Key stat:</strong> Playable ads consistently achieve 2–5× higher conversion rates than equivalent video ads for mobile games, according to ironSource and AppLovin network data.
+            </div>
+
+            <h2>How do they differ from video ads?</h2>
+
+            <p>
+              Video ads are passive — the user watches. Playable ads are active — the user plays. That difference drives three measurable outcomes:
+            </p>
+
+            <ul>
+              <li><strong>Higher intent installs.</strong> Users who choose to install after playing your mechanic already know whether they like it. Day-1 retention is typically 10–20% higher for playable-sourced installs versus video-sourced installs.</li>
+              <li><strong>Better ROAS.</strong> Because you're filtering for engaged users upfront, your downstream monetisation events (IAP, ad views) are more likely to fire.</li>
+              <li><strong>Creative data.</strong> Every tap, swipe, and point of drop-off in a playable ad is a data point. You can see exactly where users lose interest — something a video creative can never tell you.</li>
+            </ul>
+
+            <h2>The anatomy of a good playable ad</h2>
+
+            <p>
+              Most high-performing playable ads share the same structure:
+            </p>
+
+            <ol>
+              <li><strong>Hook (0–3s):</strong> An animated prompt — usually a hand icon — shows the user what to do. No text. No explanation. Just a clear visual cue.</li>
+              <li><strong>Core loop (3–30s):</strong> The user performs one satisfying loop of your core mechanic. For a puzzle game, that's one puzzle. For a merge game, that's one merge chain. For a shooter, that's one short combat encounter.</li>
+              <li><strong>Win moment:</strong> The user should succeed. Playable ads that let users fail have significantly higher drop-off rates. Design the experience so success is achievable in under 30 seconds.</li>
+              <li><strong>Endcard:</strong> A full-screen CTA with your game icon, store rating, and an install button. Optionally loop back to the playable if the user doesn't tap.</li>
+            </ol>
+
+            <h2>Common mistakes to avoid</h2>
+
+            <p>
+              After reviewing hundreds of playable ad creatives, these are the mistakes that consistently hurt performance:
+            </p>
+
+            <ul>
+              <li><strong>Too much tutorial.</strong> If you need more than one tap to explain what to do, it's too complex. Simplify the mechanic.</li>
+              <li><strong>Replicating the full game.</strong> The playable ad is a hook, not a demo. Show the most satisfying five seconds of your game, not a representative cross-section.</li>
+              <li><strong>Slow load time.</strong> Anything over 3 seconds to interactive and you've already lost most users. Compress assets aggressively — aim for under 2MB total.</li>
+              <li><strong>Mismatched expectations.</strong> The playable ad mechanic should closely mirror the actual game. "Bait and switch" playables get installs but destroy Day-7 retention.</li>
+            </ul>
+
+            <h2>How Noga Labs handles playable ad creation</h2>
+
+            <p>
+              Building a playable ad from scratch requires front-end engineering, game design sense, and ad platform knowledge. That's a rare combination — and an expensive one if you're hiring for it. Noga Labs automates the translation from game asset to playable ad, so your team focuses on creative direction while we handle the technical build.
+            </p>
+
+            <p>
+              Our Game Discovery Network then distributes your playable ads across other developers' games — a mutual discovery model where developers grow together instead of bidding against each other on the same ad inventory.
+            </p>
+
+            <blockquote>
+              <p>The best playable ad is the one that gets made. Perfection is the enemy of iteration — ship a simple version, read the data, improve it.</p>
+            </blockquote>
+
+            <h2>What to do next</h2>
+
+            <p>
+              If you're starting from zero, the fastest path is to identify your core loop — the single mechanic a player does most often — and design a 20-second experience around it. If you already have playable ads running, audit your drop-off data and look for the moment users stop interacting. That's your creative brief for the next iteration.
+            </p>
+
+            <p>
+              Ready to see what a playable ad built from your game looks like? <a href="../../index.html#waitlist-footer">Join the Noga Labs waitlist</a> and we'll show you.
+            </p>
+
+          </article>
+
+          <!-- Author bio — [EDIT per article] -->
+          <aside class="article-author-bio" aria-label="About the author">
+            <div class="article-author-bio__avatar" aria-hidden="true">NL</div>
+            <div class="article-author-bio__info">
+              <p class="article-author-bio__name">Noga Labs Team</p>
+              <p class="article-author-bio__role">Mobile Growth</p>
+              <p class="article-author-bio__desc">
+                The Noga Labs team writes about mobile game marketing, user acquisition, and playable ad strategy. We're building the Game Discovery Network so developers can grow their games without overpaying for ad inventory.
+              </p>
+              <a href="https://www.linkedin.com/company/noga-labs" class="article-author-bio__linkedin" target="_blank" rel="noopener noreferrer">
+                LinkedIn →
+              </a>
+            </div>
+          </aside>
+
+          <!-- Related articles — [EDIT: update hrefs and titles when articles exist] -->
+          <section class="article-related" aria-label="Related articles">
+            <h2 class="article-related__heading">More from Noga Labs</h2>
+            <ul class="article-related__list" role="list">
+
+              <li class="article-related__item">
+                <a href="../index.html" class="article-related__link">
+                  <div class="article-related__thumb article-related__thumb--blog" aria-hidden="true"></div>
+                  <div class="article-related__info">
+                    <span class="article-related__category">Blog</span>
+                    <span class="article-related__title">Mobile Game UA Trends to Watch in 2026</span>
+                  </div>
+                </a>
+              </li>
+
+              <li class="article-related__item">
+                <a href="../index.html" class="article-related__link">
+                  <div class="article-related__thumb article-related__thumb--guide" aria-hidden="true"></div>
+                  <div class="article-related__info">
+                    <span class="article-related__category">Guide</span>
+                    <span class="article-related__title">How to Write a Winning Creative Brief for Your Ad Team</span>
+                  </div>
+                </a>
+              </li>
+
+              <li class="article-related__item">
+                <a href="../index.html" class="article-related__link">
+                  <div class="article-related__thumb article-related__thumb--tool" aria-hidden="true"></div>
+                  <div class="article-related__info">
+                    <span class="article-related__category">Tool</span>
+                    <span class="article-related__title">UA Budget Planner — Free Spreadsheet Template</span>
+                  </div>
+                </a>
+              </li>
+
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="../../index.html" class="footer-logo-link" aria-label="Noga Labs">
+          <img class="footer-logo-img" src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black.png" width="200" height="54" alt="" />
+        </a>
+        <p class="footer-brand">© <span id="year"></span> Noga Labs. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Cookie consent banner -->
+    <div id="cookie-consent-banner" class="cookie-consent" role="region" aria-label="Cookie consent" aria-hidden="true" hidden>
+      <div class="cookie-consent__inner">
+        <p class="cookie-consent__text">We use cookies to understand how our site is used and to measure marketing effectiveness. You can accept all, reject non-essential cookies, or manage preferences.</p>
+        <div class="cookie-consent__actions">
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-reject-all">Essentials Only</button>
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-manage">Manage Preferences</button>
+          <button type="button" class="btn btn-cookie btn-cookie--primary"   id="cookie-accept-all">Accept All</button>
+        </div>
+      </div>
+    </div>
+
+    <dialog id="cookie-preferences-dialog" class="cookie-preferences" aria-labelledby="cookie-prefs-title">
+      <div class="cookie-preferences__panel">
+        <h2 id="cookie-prefs-title" class="cookie-preferences__title">Cookie preferences</h2>
+        <p class="cookie-preferences__intro">Choose which optional cookies we may use. Strictly necessary cookies are always on.</p>
+        <div class="cookie-preferences__options">
+          <div class="cookie-pref-row">
+            <div class="cookie-pref-row__text">
+              <span class="cookie-pref-row__name" id="pref-analytics-label">Analytics</span>
+              <p class="cookie-pref-row__desc" id="pref-analytics-desc">Helps us measure traffic and improve the site.</p>
+            </div>
+            <label class="cookie-switch">
+              <input type="checkbox" id="pref-analytics" aria-labelledby="pref-analytics-label" aria-describedby="pref-analytics-desc" />
+              <span class="cookie-switch__ui" aria-hidden="true"></span>
+            </label>
+          </div>
+          <div class="cookie-pref-row">
+            <div class="cookie-pref-row__text">
+              <span class="cookie-pref-row__name" id="pref-marketing-label">Marketing</span>
+              <p class="cookie-pref-row__desc" id="pref-marketing-desc">Allows us to measure ad effectiveness and show relevant content.</p>
+            </div>
+            <label class="cookie-switch">
+              <input type="checkbox" id="pref-marketing" aria-labelledby="pref-marketing-label" aria-describedby="pref-marketing-desc" />
+              <span class="cookie-switch__ui" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+        <div class="cookie-preferences__actions">
+          <button type="button" class="btn btn-cookie btn-cookie--secondary" id="cookie-prefs-cancel">Cancel</button>
+          <button type="button" class="btn btn-cookie btn-cookie--primary"   id="cookie-prefs-save">Save preferences</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/article.js"></script>
+  </body>
+</html>
