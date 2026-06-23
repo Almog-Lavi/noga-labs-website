@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Consent Mode v2 defaults (must run before GTM loads) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+      });
+
+      (function () {
+        var COOKIE = "noga_cookie_consent";
+
+        function getConsentCookie() {
+          var parts = ("; " + document.cookie).split("; " + COOKIE + "=");
+          if (parts.length !== 2) return null;
+          var raw = decodeURIComponent(parts.pop().split(";").shift() || "");
+          if (!raw) return null;
+          try {
+            var d = JSON.parse(raw);
+            if (
+              d &&
+              typeof d.analytics === "boolean" &&
+              typeof d.marketing === "boolean"
+            ) {
+              return d;
+            }
+          } catch (e) {}
+          return null;
+        }
+
+        function applyGtagUpdate(analytics, marketing) {
+          gtag("consent", "update", {
+            analytics_storage: analytics ? "granted" : "denied",
+            ad_storage: marketing ? "granted" : "denied",
+            ad_user_data: marketing ? "granted" : "denied",
+            ad_personalization: marketing ? "granted" : "denied",
+            personalization_storage: marketing ? "granted" : "denied",
+          });
+        }
+
+        window.NogaConsent = {
+          COOKIE_NAME: COOKIE,
+          getStored: getConsentCookie,
+          applyGtagUpdate: applyGtagUpdate,
+          pushConsentEvent: function (analytics, marketing) {
+            dataLayer.push({
+              event: "cookie_consent_update",
+              consent_analytics: analytics ? "granted" : "denied",
+              consent_marketing: marketing ? "granted" : "denied",
+            });
+          },
+        };
+
+        var stored = getConsentCookie();
+        if (stored) {
+          applyGtagUpdate(stored.analytics, stored.marketing);
+        }
+      })();
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KQXPWV6V");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta
+      name="description"
+      content="Noga Labs is a platform for mobile game developers to build playable game demos easily and advertise through a Game Discovery Network. Discover essential tools for mobile developers to drive mobile game advertising, user acquisition, and growth."
+    />
+    <meta
+      property="og:title"
+      content="Noga Labs | Welcome | Game Demos and Game Discovery Network for Mobile Game Developers"
+    />
+    <meta
+      property="og:description"
+      content="Noga Labs is a platform for mobile game developers to build playable game demos easily and advertise through a Game Discovery Network. Discover essential tools for mobile developers to drive mobile game advertising, user acquisition, and growth."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nogalabs.com/landing/" />
+    <meta
+      property="og:image"
+      content="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Noga Labs | Welcome | Game Demos and Game Discovery Network for Mobile Game Developers"
+    />
+    <meta
+      name="twitter:description"
+      content="Noga Labs is a platform for mobile game developers to build playable game demos easily and advertise through a Game Discovery Network. Discover essential tools for mobile developers to drive mobile game advertising, user acquisition, and growth."
+    />
+    <meta
+      name="twitter:image"
+      content="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/phone-hero.png"
+    />
+    <link rel="canonical" href="https://nogalabs.com/landing/" />
+    <title>
+      Noga Labs | Welcome | Game Demos and Game Discovery Network for Mobile
+      Game Developers
+    </title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Noga Labs",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web",
+        "description": "Noga Labs is a platform for mobile game developers to build playable game demos easily and advertise through a Game Discovery Network.",
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Mobile Game Developers"
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/landing.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KQXPWV6V"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header class="site-header glass-header">
+      <div class="container header-inner">
+        <a href="#welcome" class="logo-link" aria-label="Noga Labs — Home">
+          <img
+            class="logo-img logo-img--mobile"
+            src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black-n.png"
+            width="44"
+            height="44"
+            alt=""
+          />
+          <img
+            class="logo-img logo-img--desktop"
+            src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black.png"
+            width="180"
+            height="48"
+            alt="Noga Labs"
+          />
+        </a>
+
+        <nav class="header-nav" aria-label="Primary">
+          <a class="nav-link" href="#welcome">Welcome</a>
+          <a class="nav-link" href="#benefits">Benefits</a>
+          <a class="nav-link" href="#how-it-works">How It Works</a>
+          <a class="nav-link" href="#beta-perks">Perks</a>
+        </nav>
+
+        <div class="header-cta-group">
+          <a class="btn btn-header" href="#waitlist-footer">
+            Reserve My Spot
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="btn-icon"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <button
+          type="button"
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-controls="mobile-nav-drawer"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <div
+      class="mobile-nav-drawer"
+      id="mobile-nav-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site navigation"
+      aria-hidden="true"
+    >
+      <nav class="mobile-nav-inner" aria-label="Mobile">
+        <a class="mobile-nav-link" href="#welcome">Welcome</a>
+        <a class="mobile-nav-link" href="#benefits">Benefits</a>
+        <a class="mobile-nav-link" href="#how-it-works">How It Works</a>
+        <a class="mobile-nav-link" href="#beta-perks">Perks</a>
+        <a class="mobile-nav-link mobile-nav-link--cta" href="#waitlist-footer">
+          Reserve My Spot
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="btn-icon"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </nav>
+    </div>
+
+    <main>
+      <section id="welcome" class="hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <h1 id="hero-title" class="hero-title">
+              User acquisition platform for mobile games
+            </h1>
+            <p class="hero-sub">
+              Grow your games inside a mutual discovery network of playable ads. Ad creation is on us!
+            </p>
+            <div
+              class="hero-demo-video"
+              role="region"
+              aria-label="Interactive demo preview"
+            >
+              <div class="hero-demo-video__item hero-demo-video__item--desktop">
+                <video
+                  class="hero-demo-video__media"
+                  playsinline
+                  controls
+                  controlslist="nodownload noremoteplayback"
+                  disablepictureinpicture
+                  muted
+                  preload="metadata"
+                  poster="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/hero-demo-desktop-poster-version3.jpg"
+                >
+                  <source
+					src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/HeaderDemoVer3.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <button
+                  type="button"
+                  class="hero-demo-video__toggle"
+                  aria-label="Play demo video"
+                  aria-pressed="false"
+                  data-state="play"
+                >
+                  <span class="hero-demo-video__toggle-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="hero-demo-video__item hero-demo-video__item--mobile">
+                <video
+                  class="hero-demo-video__media"
+                  playsinline
+                  controls
+                  controlslist="nodownload noremoteplayback"
+                  disablepictureinpicture
+                  muted
+                  preload="metadata"
+                  poster="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/hero-demo-mobile-poster-version3.jpg"
+                >
+                  <source
+                    src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/HeaderDemoMobileVer3.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <button
+                  type="button"
+                  class="hero-demo-video__toggle"
+                  aria-label="Play demo video"
+                  aria-pressed="false"
+                  data-state="play"
+                >
+                  <span class="hero-demo-video__toggle-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+            <p class="hero-note form-lead-text">
+              Early access launching soon. Join the waitlist now and we will let
+              you know as soon as we are ready.
+            </p>
+
+            <form
+              id="waitlist-hero"
+              class="waitlist-form waitlist-form--flat"
+              action="#"
+              method="post"
+              novalidate
+            >
+              <input
+                type="hidden"
+                name="utm_source"
+                id="utm_source_hero"
+                value=""
+              />
+              <input
+                type="hidden"
+                name="utm_medium"
+                id="utm_medium_hero"
+                value=""
+              />
+              <input
+                type="hidden"
+                name="utm_campaign"
+                id="utm_campaign_hero"
+                value=""
+              />
+              <input
+                type="hidden"
+                name="utm_content"
+                id="utm_content_hero"
+                value=""
+              />
+              <input
+                type="hidden"
+                name="utm_term"
+                id="utm_term_hero"
+                value=""
+              />
+              <div class="form-row form-row--lead">
+                <label class="sr-only" for="email-hero">Email</label>
+                <input
+                  class="input-email"
+                  type="email"
+                  name="email"
+                  id="email-hero"
+                  placeholder="you@company.com"
+                  autocomplete="email"
+                  required
+                />
+                <button class="btn btn-primary" type="submit">
+                  Get Early Access
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="btn-icon"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="benefits"
+        class="section benefits-section"
+        aria-labelledby="benefits-heading"
+      >
+        <div class="container">
+          <div class="section-intro section-intro--benefits">
+            <h2 id="benefits-heading" class="section-title">
+              A Better Way to Promote Mobile Games
+            </h2>
+          </div>
+
+          <div class="vault-grid">
+            <article class="vault-card">
+              <div class="vault-icon" aria-hidden="true">
+                <i data-lucide="network" class="icon-glow"></i>
+              </div>
+              <h3 class="vault-title">Game Discovery Network</h3>
+              <p class="vault-text">
+                Reach new players through a network where developers feature their playables
+				on other developers games.
+              </p>
+            </article>
+
+            <article class="vault-card">
+              <div class="vault-icon" aria-hidden="true">
+                <i data-lucide="gamepad-2" class="icon-glow"></i>
+              </div>
+              <h3 class="vault-title">Gameplay First</h3>
+              <p class="vault-text">
+                Playable ads feel closer to the real experience than traditional mobile ads.
+              </p>
+            </article>
+
+            <article class="vault-card">
+              <div class="vault-icon" aria-hidden="true">
+                <i data-lucide="wand-sparkles" class="icon-glow"></i>
+              </div>
+              <h3 class="vault-title">Automated Playable Creation</h3>
+              <p class="vault-text">
+                Our new system creates the playables for you,
+				 making the process simpler and accessible.
+              </p>
+            </article>
+
+            <article class="vault-card">
+              <div class="vault-icon" aria-hidden="true">
+                <i data-lucide="trending-up" class="icon-glow"></i>
+              </div>
+              <h3 class="vault-title">Get More Players</h3>
+              <p class="vault-text">
+                Playables are currently among the best-performing tools for user acquisition.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="how-it-works"
+        class="section how-it-works-section"
+        aria-labelledby="how-it-works-heading"
+      >
+        <div class="container">
+          <div class="section-intro">
+            <h2 id="how-it-works-heading" class="section-title">
+              How it Works
+            </h2>
+          </div>
+
+          <div class="steps-container">
+            <div class="step-card" id="sec-0">
+              <div class="step-text">
+                <span class="step-number">01</span>
+                <h3 class="step-heading">Add a Game to Promote</h3>
+                <p class="step-body">
+                  Upload your game info and minimal assets to the portal to begin the process.
+                </p>
+              </div>
+              <div class="step-image">
+                <img src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/hiw-game.jpg" alt="Add a game to promote" />
+              </div>
+            </div>
+
+            <div class="step-card" id="sec-1">
+              <div class="step-text">
+                <span class="step-number">02</span>
+                <h3 class="step-heading">
+                  Playable Creation
+                </h3>
+                <p class="step-body">
+                  Our system will create a playable for your game.
+				  Now you are halfway through starting promoting your game!
+                </p>
+              </div>
+              <div class="step-image">
+                <img src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/hiw-playable.jpeg" alt="Playable creation" />
+              </div>
+            </div>
+
+            <div class="step-card" id="sec-2">
+              <div class="step-text">
+                <span class="step-number">03</span>
+                <h3 class="step-heading">Integrate the Game Discovery Network</h3>
+                <p class="step-body">
+                  Embed our Game Discovery Network Unity SDK in your game
+				  to activate the hub where players can discover playables.
+                </p>
+              </div>
+              <div class="step-image">
+                <img src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/hiw-integrate.png" alt="Integrate the Game Discovery Network" />
+              </div>
+            </div>
+
+            <div class="step-card" id="sec-3">
+              <div class="step-text">
+                <span class="step-number">04</span>
+                <h3 class="step-heading">Join the Network</h3>
+                <p class="step-body">
+                  The promotion is mutual: while other developers showcase
+				  their playables on your game,
+				  you will showcase your playable on their games as well.
+                </p>
+              </div>
+              <div class="step-image">
+                <img src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/hiw-network.png" alt="Join the network" />
+              </div>
+            </div>
+
+            <div class="step-card" id="sec-4">
+              <div class="step-text">
+                <span class="step-number">05</span>
+                <h3 class="step-heading">Track Performance</h3>
+                <p class="step-body">
+                  Access analytics and insights to see how your playable ads perform.
+                </p>
+              </div>
+              <div class="step-image">
+                <img src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/hiw-access.png" alt="Track performance and analytics" />
+              </div>
+            </div>
+
+            <div class="step-card" id="sec-5">
+              <div class="step-text">
+                <span class="step-number">06</span>
+                <h3 class="step-heading">Gain more installs</h3>
+                <p class="step-body">
+                  Now's your chance to showcase your game, gain more installs
+                  and let it grow!
+                </p>
+              </div>
+              <div class="step-image">
+                <img src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/hiw-installs.png" alt="Gain more installs" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="beta-perks"
+        class="section beta-perks-section"
+        aria-labelledby="beta-perks-heading"
+      >
+        <div class="container">
+          <div class="section-intro section-intro--beta-perks">
+            <h2 id="beta-perks-heading" class="section-title">
+              Early Access Perks
+            </h2>
+          </div>
+
+          <div class="beta-perks-grid" role="list" aria-label="Beta perks list">
+            <article class="beta-perks-card" role="listitem">
+              <div class="beta-perks-card__icon" aria-hidden="true">
+                <i
+                  data-lucide="life-buoy"
+                  class="beta-perks-card__icon-svg"
+                ></i>
+              </div>
+              <h3 class="beta-perks-card__title">Hands-on support</h3>
+              <p class="beta-perks-card__text">
+                Get direct support to help you launch your demo smoothly and get
+                it ready for discovery.
+              </p>
+            </article>
+
+            <article class="beta-perks-card" role="listitem">
+              <div class="beta-perks-card__icon" aria-hidden="true">
+                <i
+                  data-lucide="lightbulb"
+                  class="beta-perks-card__icon-svg"
+                ></i>
+              </div>
+              <h3 class="beta-perks-card__title">
+                Priority consideration
+              </h3>
+              <p class="beta-perks-card__text">
+                Get priority consideration for features that support your game’s
+                needs as the platform grows.
+              </p>
+            </article>
+
+            <article class="beta-perks-card" role="listitem">
+              <div class="beta-perks-card__icon" aria-hidden="true">
+                <i data-lucide="award" class="beta-perks-card__icon-svg"></i>
+              </div>
+              <h3 class="beta-perks-card__title">Early partner advantage</h3>
+              <p class="beta-perks-card__text">
+                Get a head start in the network with partner perks reserved for
+                studios joining early.
+              </p>
+            </article>
+
+            <article class="beta-perks-card" role="listitem">
+              <div class="beta-perks-card__icon" aria-hidden="true">
+                <i data-lucide="megaphone" class="beta-perks-card__icon-svg"></i>
+              </div>
+              <h3 class="beta-perks-card__title">Free first ads</h3>
+              <p class="beta-perks-card__text">
+                We build your first playable ads from your game to help you get
+                started.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="waitlist-footer"
+        class="section footer-waitlist-section"
+        aria-labelledby="footer-waitlist-heading"
+      >
+        <div class="container footer-waitlist-inner">
+          <h2 id="footer-waitlist-heading" class="section-title">
+            Don't miss out
+          </h2>
+          <p class="section-lead footer-waitlist-lead form-lead-text">
+            Want to be the first to know when we launch? Sign up now and we will
+            notify you.
+          </p>
+
+          <form
+            id="waitlist-form-footer"
+            class="waitlist-form waitlist-form--flat"
+            action="#"
+            method="post"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="utm_source"
+              id="utm_source_footer"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="utm_medium"
+              id="utm_medium_footer"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="utm_campaign"
+              id="utm_campaign_footer"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="utm_content"
+              id="utm_content_footer"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="utm_term"
+              id="utm_term_footer"
+              value=""
+            />
+            <div class="form-row form-row--lead">
+              <label class="sr-only" for="email-footer">Email</label>
+              <input
+                class="input-email"
+                type="email"
+                name="email"
+                id="email-footer"
+                placeholder="you@company.com"
+                autocomplete="email"
+                required
+              />
+              <button class="btn btn-primary" type="submit">
+                Reserve my spot
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="btn-icon"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <div
+            class="form-perk form-perk--footer form-perk--static"
+            aria-label="Early access perks"
+          >
+            <i data-lucide="gem" class="form-perk__icon" aria-hidden="true"></i>
+            <span class="form-perk__label">Early Access Perks Included</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="#welcome" class="footer-logo-link" aria-label="Noga Labs">
+          <img
+            class="footer-logo-img"
+            src="https://pub-c5f2ee2659d345f8afa5562b9261ffc2.r2.dev/LandingSite/logo-black.png"
+            width="200"
+            height="54"
+            alt=""
+          />
+        </a>
+        <p class="footer-brand">
+          © <span id="year"></span> Noga Labs. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <div
+      id="cookie-consent-banner"
+      class="cookie-consent"
+      role="region"
+      aria-label="Cookie consent"
+      aria-hidden="true"
+      hidden
+    >
+      <div class="cookie-consent__inner">
+        <p class="cookie-consent__text">
+          We use cookies to understand how our site is used and to measure
+          marketing effectiveness. You can accept all, reject non-essential
+          cookies, or manage preferences.
+        </p>
+        <div class="cookie-consent__actions">
+          <button
+            type="button"
+            class="btn btn-cookie btn-cookie--secondary"
+            id="cookie-reject-all"
+          >
+            Essentials Only
+          </button>
+          <button
+            type="button"
+            class="btn btn-cookie btn-cookie--secondary"
+            id="cookie-manage"
+          >
+            Manage Preferences
+          </button>
+          <button
+            type="button"
+            class="btn btn-cookie btn-cookie--primary"
+            id="cookie-accept-all"
+          >
+            Accept All
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <dialog
+      id="cookie-preferences-dialog"
+      class="cookie-preferences"
+      aria-labelledby="cookie-prefs-title"
+    >
+      <div class="cookie-preferences__panel">
+        <h2 id="cookie-prefs-title" class="cookie-preferences__title">
+          Cookie preferences
+        </h2>
+        <p class="cookie-preferences__intro">
+          Choose which optional cookies we may use. Strictly necessary cookies
+          are always on. You can change this later by clearing site data for
+          this domain.
+        </p>
+
+        <div class="cookie-preferences__options">
+          <div class="cookie-pref-row">
+            <div class="cookie-pref-row__text">
+              <span class="cookie-pref-row__name" id="pref-analytics-label"
+                >Analytics</span
+              >
+              <p class="cookie-pref-row__desc" id="pref-analytics-desc">
+                Helps us measure traffic and improve the site (for example,
+                Google Analytics).
+              </p>
+            </div>
+            <label class="cookie-switch">
+              <input
+                type="checkbox"
+                id="pref-analytics"
+                aria-labelledby="pref-analytics-label"
+                aria-describedby="pref-analytics-desc"
+              />
+              <span class="cookie-switch__ui" aria-hidden="true"></span>
+            </label>
+          </div>
+
+          <div class="cookie-pref-row">
+            <div class="cookie-pref-row__text">
+              <span class="cookie-pref-row__name" id="pref-marketing-label"
+                >Marketing</span
+              >
+              <p class="cookie-pref-row__desc" id="pref-marketing-desc">
+                Used for ads and remarketing measurement (for example,
+                conversion tags).
+              </p>
+            </div>
+            <label class="cookie-switch">
+              <input
+                type="checkbox"
+                id="pref-marketing"
+                aria-labelledby="pref-marketing-label"
+                aria-describedby="pref-marketing-desc"
+              />
+              <span class="cookie-switch__ui" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="cookie-preferences__footer">
+          <button
+            type="button"
+            class="btn btn-cookie btn-cookie--ghost"
+            id="cookie-prefs-cancel"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            class="btn btn-cookie btn-cookie--primary"
+            id="cookie-prefs-save"
+          >
+            Save preferences
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/landing.js"></script>
+  </body>
+</html>

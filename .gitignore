@@ -2,9 +2,3 @@
 Thumbs.db
 desktop.ini
 .cursor/
-
-# Landing page — lives in a separate repository
-landing/
-css/landing.css
-js/landing.js
-brevo-hero-redesign-instructions.md
